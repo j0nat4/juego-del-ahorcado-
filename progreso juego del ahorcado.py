@@ -1,0 +1,25 @@
+import random
+
+def obtener_plabra_aleatoria():
+    palabras=["metabolismo","fotosintecis","tallo","hoja","savia","flor"]
+    palabra_aleatoria=random.choice(palabras)
+    return palabra_aleatoria 
+
+def mostrar_tablero(palabra_secreta, letras_adivinadas):
+    tablero=""
+    for letra in palabra_secreta:
+        if letra in letras_adivinadas:
+            tablero+=letra
+        else:
+            tablero+="_"
+    print(tablero)
+
+def jugar_ahorcado():
+    palabra_secreta=obtener_plabra_aleatoria()
+    letras_adivinadas=[]
+    intentos_restantes=2
+
+
+    while intentos_restantes>0:
+        mostrar_tablero(palabra_secreta,letras_adivinadas)
+        letra=input("introduce una letra: ").lower()
